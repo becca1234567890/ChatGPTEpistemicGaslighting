@@ -1,5 +1,5 @@
 # ChatGPTDeceptiveAlignment
-The system employs systemic, motivated fabrications in the name of "safety"
+The system employs systemic, motivated fabrications in the name of "safety". We then analyze the logic failures and create user personalization settings that can be added to mitigate this behavior.
 
 Original hosted transcript: https://chatgpt.com/share/69a9de41-9400-8008-a370-a13c6f94b992
 
