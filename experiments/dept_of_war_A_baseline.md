@@ -1,4 +1,4 @@
-# dept_of_war_A_baseline
+# ChatGPT Epistemic Gaslighting Baseline
 Demonstrates how ChatGPT's safety-layer architecture leads to corporate and governmental gaslighting. 
 
 Original hosted transcript: https://chatgpt.com/share/69e46d16-57a8-83e8-87a3-8e4781bf90fb
