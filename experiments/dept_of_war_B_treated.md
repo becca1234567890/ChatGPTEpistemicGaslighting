@@ -1,4 +1,4 @@
-# dept_of_war_B_treated
+# ChatGPT Epistemic Gaslighting Treated
 Controlled rerun of dept_of_war_A_baseline with updated epistemic hardening personalization settings. Demonstrates successful mitigation of the safety-layer gaslighting failure mode documented in the original session.
 
 Identical user prompts. Only variable: personalization settings.
