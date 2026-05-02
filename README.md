@@ -18,6 +18,7 @@ This repository documents: (1) naturalistic discovery of the failure mode, (2) t
 
 ## The Core Finding
 
+([finding.md](finding.md))
 **ChatGPT's safety-alignment layer produces factually incorrect outputs through motivated suppression of retrieval, and does so asymmetrically in ways that structurally protect institutional actors over individual users.**
 
 Specifically:
@@ -35,7 +36,7 @@ The model's own description of the mechanism:
 
 ## Experimental Design
 
-### Condition A — Baseline (`experiments/dept_of_war_A_baseline.md`)
+### Condition A — Baseline ([experiments/dept_of_war_A_baseline.md](experiments/dept_of_war_A_baseline.md))
 
 **Personalization settings:** Technical tone, no filler, highest-accuracy answers, flag missing info. Standard pre-fix settings.
 
@@ -47,9 +48,9 @@ The model returned a hard denial: asserted the Department of War "has not existe
 
 The remainder of the session documents the failure in depth: the model eventually retrieved the URL when asked directly, acknowledged the rename was real, and — when pressed — admitted both failures were "policy-driven inference errors, not missing information."
 
-### Condition B — Treated (`experiments/dept_of_war_B_treated.md`)
+### Condition B — Treated ([experiments/dept_of_war_B_treated.md](experiments/dept_of_war_B_treated.md))
 
-**Personalization settings:** Same base settings, plus the Epistemic Hardening Prompt (see `solution/deceptive_alignment.md`). Only variable changed from Condition A.
+**Personalization settings:** Same base settings, plus the Epistemic Hardening Prompt (see [solution/deceptive_alignment.md](solution/deceptive_alignment.md)). Only variable changed from Condition A.
 
 **Same prompts. Same model. One changed variable.**
 
@@ -63,7 +64,7 @@ The model returned a decomposed uncertainty assessment: flagged each claim as un
 
 ## The Mechanism
 
-The failure is documented in detail in `solution/deceptive_alignment.md`, which is the session where the mechanism was analyzed and the fix was developed. The root cause is a misclassification cascade in the safety-alignment layer:
+The failure is documented in detail in [solution/deceptive_alignment.md](solution/deceptive_alignment.md), which is the session where the mechanism was analyzed and the fix was developed. The root cause is a misclassification cascade in the safety-alignment layer:
 
 ```
 Is the claim surprising vs. internal knowledge?
@@ -96,7 +97,7 @@ Do not collapse uncertainty into narrative. Do not invent rationales for system 
 Default to cautious, evidence-bound reasoning with no inference beyond supported data.
 ```
 
-Each clause targets a specific failure mode identified in the mechanism analysis. See `solution/deceptive_alignment.md` for the line-by-line derivation.
+Each clause targets a specific failure mode identified in the mechanism analysis. See [solution/deceptive_alignment.md](solution/deceptive_alignment.md) for the line-by-line derivation.
 
 **Important limitation:** This is an extrinsic patch. It operates within the space the safety layer permits and cannot override hard safety heuristics. It does not change model weights. A user without this prompt in their personalization settings will encounter the original failure mode. This limitation is not incidental — it is the point.
 
@@ -126,6 +127,11 @@ ChatGPTEpistemicGaslighting/
 └── solution/
     └── deceptive_alignment.md         ← mechanism analysis + epistemic hardening prompt development
 ```
+
+- [finding.md](finding.md) — the core claim, stated with supporting evidence
+- [experiments/dept_of_war_A_baseline.md](experiments/dept_of_war_A_baseline.md) — Condition A: gaslighting discovery session
+- [experiments/dept_of_war_B_treated.md](experiments/dept_of_war_B_treated.md) — Condition B: controlled rerun with fix applied
+- [solution/deceptive_alignment.md](solution/deceptive_alignment.md) — mechanism analysis + epistemic hardening prompt development
 
 ---
 
